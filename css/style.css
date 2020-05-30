@@ -64,13 +64,13 @@ button{
     color: gray;
 }
 
-.section3-scroll{
+/* .section3-scroll{
     height: 50px;  
     overflow: hidden;
     position: relative;
-}
+} */
 
-.section3-scroll h6{
+/* .section3-scroll h6{
     font-size: 1em;
     color: blue;
     position: absolute;
@@ -79,16 +79,16 @@ button{
     margin: 0;
     line-height: 50px;
     text-align: center;
-    /* Starting position */
+    
     -moz-transform:translateX(100%);
     -webkit-transform:translateX(100%);    
     transform:translateX(100%);
-    /* Apply animation to this element */  
+   
     -moz-animation: example1 15s linear infinite;
     -webkit-animation: example1 15s linear infinite;
     animation: example1 15s linear infinite;
 }
-/* Move it (define the animation) */
+
 @-moz-keyframes example1 {
     0%   { -moz-transform: translateX(100%); }
     100% { -moz-transform: translateX(-100%); }
@@ -99,16 +99,15 @@ button{
 }
 @keyframes example1 {
     0%   { 
-    -moz-transform: translateX(100%); /* Firefox bug fix */
-    -webkit-transform: translateX(100%); /* Firefox bug fix */
+    -moz-transform: translateX(100%); 
+    -webkit-transform: translateX(100%); 
     transform: translateX(100%);       
     }
     100% { 
-    -moz-transform: translateX(-100%); /* Firefox bug fix */
-    -webkit-transform: translateX(-100%); /* Firefox bug fix */
-    transform: translateX(-100%); 
+    -moz-transform: translateX(-100%); 
+    -webkit-transform: translateX(-100%); 
     }
-}
+} */
 /*
 #state_name_totalCases {
     animation: move 15s infinite;

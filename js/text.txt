@@ -5,3 +5,7 @@ https://api.rootnet.in/covid19-in/stats/testing/latest
 https://api.rootnet.in/covid19-in/hospitals/medical-colleges
 
 https://api.rootnet.in/covid19-in/hospitals/beds
+
+https://api.rootnet.in/covid19-in/contacts
+
+https://api.rootnet.in/covid19-in/notifications

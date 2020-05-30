@@ -5,6 +5,17 @@ const url_covidTest = 'https://api.rootnet.in/covid19-in/stats/testing/latest';
 const url_covidMediCollage = 'https://api.rootnet.in/covid19-in/hospitals/medical-colleges';
 const url_covidAvailableBed = 'https://api.rootnet.in/covid19-in/hospitals/beds';
 const url_covidContact = 'https://api.rootnet.in/covid19-in/contacts';
+const url_covidNotification = 'https://api.rootnet.in/covid19-in/notifications'
+
+let notification = {};
+var randomNum = [];
+for(var counter =1;counter<=5;counter++){
+    randomNum.push(Math.floor((Math.random() * 10) + 1));
+}
+// randomNum.forEach(function(item){
+//     console.log(item+"\n");
+// });
+   
 
  getCovidData();
 
@@ -23,6 +34,9 @@ async function getCovidData(){
 
     const data_covidContacttemp = await fetch(url_covidContact);
     const data_covidContact  = await data_covidContacttemp.json();
+
+    const data_covidNotificationtemp = await fetch(url_covidNotification);
+    const data_covidNotification = await data_covidNotificationtemp.json();
 
     let lastOriginUpdate = data_covidStatus.lastOriginUpdate;
     let totalCases = data_covidStatus.data.summary.total;
@@ -44,7 +58,12 @@ async function getCovidData(){
     //     console.log(item.state_name+":"+item.state_cases);
         
     // });
-     
+
+    //********************Random selected 4 Covid Notifications******************//
+    // console.log(data_covidNotification.data.notifications[3]);
+    
+    notification1 = data_covidNotification.data.notifications[randomNum[0]];
+    console.log(notification1)
 
     document.getElementById("updation").innerHTML = "updated on:" + lastOriginUpdate + "(GMT+5:30)";
     document.getElementById("totalCases").innerHTML = totalCases;
@@ -55,6 +74,8 @@ async function getCovidData(){
     state_name_totalCases.forEach(function(item,index,array) {
         document.getElementById("state_name_totalCases").innerHTML += item.state_name+":"+item.state_cases+"\t|\t"; 
     });
+
+
     
 
     

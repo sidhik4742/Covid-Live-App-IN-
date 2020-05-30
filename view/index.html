@@ -36,9 +36,10 @@
                     <div class="w3-dropdown-hover" style="background-color: transparent;">
                         <button class="w3-btn w3-round-large w3-hover-red"><b>LATEST NOTIFICATIONS</button>
                         <div class="w3-dropdown-content w3-bar-block w3-border">
-                          <a href="#" class="w3-bar-item w3-button">Link 1</a>
-                          <a href="#" class="w3-bar-item w3-button">Link 2</a>
-                          <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                          <a href="#" class="w3-bar-item w3-button" id="notification1"></a>
+                          <a href="#" class="w3-bar-item w3-button" id="notification2"></a>
+                          <a href="#" class="w3-bar-item w3-button" id="notification3"></a>
+                          <a href="#" class="w3-bar-item w3-button" id="notification4"></a>
                         </div>
                       </div>
                 </div>
@@ -79,7 +80,8 @@
         <div class="section3">
             <div class="container">
                 <div class="section3-scroll">
-                    <h6 class="state_name_totalCases" id="state_name_totalCases"></h6>
+                    <!--<h6 class="state_name_totalCases" id="state_name_totalCases"></h6>-->
+                    <marquee behavior="scroll" direction="left" bgcolor="green" scrollamound="30" id="state_name_totalCases" ></marquee>
                 </div>
             </div>
         </div>
