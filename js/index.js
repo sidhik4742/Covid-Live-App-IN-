@@ -7,7 +7,7 @@ const url_covidAvailableBed = 'https://api.rootnet.in/covid19-in/hospitals/beds'
 const url_covidContact = 'https://api.rootnet.in/covid19-in/contacts';
 const url_covidNotification = 'https://api.rootnet.in/covid19-in/notifications'
 
-let notification = {};
+let notification = [];
 var randomNum = [];
 for(var counter =1;counter<=5;counter++){
     randomNum.push(Math.floor((Math.random() * 10) + 1));
@@ -61,9 +61,19 @@ async function getCovidData(){
 
     //********************Random selected 4 Covid Notifications******************//
     // console.log(data_covidNotification.data.notifications[3]);
+
+    for(var noti_count=0;noti_count<4;noti_count++){
+        notification.push(data_covidNotification.data.notifications[randomNum[0]]);
+    }
+    notification.forEach(function(item,index,array) {
+        console.log(item);
+    });
     
-    notification1 = data_covidNotification.data.notifications[randomNum[0]];
-    console.log(notification1)
+    // notification = data_covidNotification.data.notifications[randomNum[0]];
+    // notification = data_covidNotification.data.notifications[randomNum[1]];
+    // notification = data_covidNotification.data.notifications[randomNum[2]];
+    // notification = data_covidNotification.data.notifications[randomNum[3]];
+    // console.log(notification)
 
     document.getElementById("updation").innerHTML = "updated on:" + lastOriginUpdate + "(GMT+5:30)";
     document.getElementById("totalCases").innerHTML = totalCases;
@@ -74,6 +84,14 @@ async function getCovidData(){
     state_name_totalCases.forEach(function(item,index,array) {
         document.getElementById("state_name_totalCases").innerHTML += item.state_name+":"+item.state_cases+"\t|\t"; 
     });
+
+    document.getElementById("notification1").innerHTML += notification[0].title+"\n"+notification[0].link;
+    document.getElementById("notification2").innerHTML += notification[1].title+"\n"+notification[1].link;
+    document.getElementById("notification3").innerHTML += notification[2].title+"\n"+notification[2].link;
+    document.getElementById("notification4").innerHTML += notification[3].title+"\n"+notification[3].link;
+    // notification.forEach(function(item,index,array) {
+    //     document.getElementById("notification1").innerHTML += item.title+"\n"+item.link; 
+    // });
 
 
     
