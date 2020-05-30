@@ -1,0 +1,7 @@
+https://api.rootnet.in/covid19-in/stats/latest
+
+https://api.rootnet.in/covid19-in/stats/testing/latest
+
+https://api.rootnet.in/covid19-in/hospitals/medical-colleges
+
+https://api.rootnet.in/covid19-in/hospitals/beds

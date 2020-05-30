@@ -1,0 +1,125 @@
+body,html{
+    
+}
+button{
+    margin: 1em;
+}
+.dropdown-bg{
+    background-color: transparent;
+}
+.header-bg{
+    background: linear-gradient(to bottom, #9be89c 0%,#cdf97d 100%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.header-logo{
+    border-color: black;
+    margin: 10px;
+    padding-top: 5px;
+    width: 10%;
+    height: auto;
+    border-radius: 50%;
+    border-style: solid;
+}
+.section1{
+    background-color: blue;
+}
+.section2{
+    margin-top: 1em;
+}
+.section2-p{
+    font-size: 2em;
+    padding-top: 0.5em;
+    font-weight: bold;
+    color: gray;
+}
+
+.card{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    border: none;
+    width: 100%;
+}
+.section-span{
+    font-size: 3em;
+}
+
+.section2-text{
+    font-size: 1em;
+}
+
+@media screen and (max-width :500px){
+    .section-span{
+        font-size: 2em;
+    }
+    .section2-text{
+        font-size: 0.8em;
+    }  
+}
+
+.updation{
+    font-size: 1em;
+    color: gray;
+}
+
+.section3-scroll{
+    height: 50px;  
+    overflow: hidden;
+    position: relative;
+}
+
+.section3-scroll h6{
+    font-size: 1em;
+    color: blue;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);    
+    transform:translateX(100%);
+    /* Apply animation to this element */  
+    -moz-animation: example1 15s linear infinite;
+    -webkit-animation: example1 15s linear infinite;
+    animation: example1 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes example1 {
+    0%   { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes example1 {
+    0%   { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes example1 {
+    0%   { 
+    -moz-transform: translateX(100%); /* Firefox bug fix */
+    -webkit-transform: translateX(100%); /* Firefox bug fix */
+    transform: translateX(100%);       
+    }
+    100% { 
+    -moz-transform: translateX(-100%); /* Firefox bug fix */
+    -webkit-transform: translateX(-100%); /* Firefox bug fix */
+    transform: translateX(-100%); 
+    }
+}
+/*
+#state_name_totalCases {
+    animation: move 15s infinite;
+}
+@keyframes move {
+    from {right: 0px;}
+  to {right: 100%;}
+}
+#state_name_totalCases{
+    display: inline;
+    background-color: greenyellow;
+}
+*/
+
