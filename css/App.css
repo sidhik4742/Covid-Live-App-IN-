@@ -1,0 +1,51 @@
+.mainBody{
+    background-color: #2122;
+    width: 100%;
+    height: auto;
+}
+hr{
+    background-color: #F700C4;
+    width: 100%;
+    height: 1px;
+    
+
+}
+.h3-logo-text{
+
+    color: white;
+    font-size: em;
+    font-weight: 400;
+}
+
+.sidebar .sidebar-wrapper{
+    width: 100%;
+    min-height: 100%;
+    max-height: calc(100vh - 705px);
+    z-index: 4;
+    position: relative;
+    overflow: auto;
+    background-color: #007bff;
+}
+@media screen and (max-width :500px){
+    .nav-screen{
+        display: none;
+    }
+}
+.dashboard{
+    width: 100%;
+    height: 35rem;
+    background-color: #F700C4;
+    border-radius: 10px;
+}
+.h4-text{
+    color: black;
+}
+
+.scrolling-bar{
+    padding-top: 0.5em;
+    height:4em;
+}
+.state_name_totalCases{
+    background-color: transparent;
+    font-size: 2em;
+}
