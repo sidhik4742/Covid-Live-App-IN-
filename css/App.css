@@ -1,5 +1,10 @@
+
+#dashboard{
+    
+}
+
 .mainBody{
-    background-color: #2122;
+    background-color: #212529;
     width: 100%;
     height: auto;
 }
@@ -37,6 +42,7 @@ hr{
     background-color: #F700C4;
     border-radius: 10px;
 }
+
 .h4-text{
     color: black;
 }
@@ -49,3 +55,32 @@ hr{
     background-color: transparent;
     font-size: 2em;
 }
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+  }
+
+.modal-header{
+    display:  inline;
+}
+.modal-title{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.modal-body{
+    overflow: auto;
+}
+
+  
