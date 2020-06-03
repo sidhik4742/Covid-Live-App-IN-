@@ -33,14 +33,25 @@ hr{
 }
 @media screen and (max-width :500px){
     .nav-screen{
+        
         display: none;
     }
 }
+
+@media screen and (min-width :500px){
 .dashboard{
+    display: flexbox;
     width: 100%;
-    height: 35rem;
-    background-color: #F700C4;
+    height: 100%;
+    background-color:#F700C4;
     border-radius: 10px;
+}
+}
+@media screen and (min-width :500px){
+    .arrow-icon, .closebtn{
+        display: none;
+        margin-left: 0;
+    }
 }
 
 .h4-text{
@@ -82,5 +93,50 @@ hr{
 .modal-body{
     overflow: auto;
 }
+.card-text{
+    font-size: 3em;
+    font-weight: bolder;
+    
+}
+.card .card-body .card-title{
+    color: black;
+}
+.card p{
+    color: black;
+}
+
+@media screen and (max-width :500px){
+.sidePanel{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 9rem;
+    left: 0;
+    background-color: #F700C4;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.sidePanel .nav-screen{
+    display: flex;
+}
+
+.sidePanel .closebtn{
+    
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 50px;
+    overflow-y: auto;
+}
+}
+
 
   

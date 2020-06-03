@@ -59,8 +59,8 @@ async function getCovidData(){
         
     // });
 
-    //********************Random selected 4 Covid Notifications******************//
-    // console.log(data_covidNotification.data.notifications[3]);
+    //********************Random selected 20 Covid Notifications******************//
+    // console.log(data_covidNotification.data.notifications[20]);
 
     for(var noti_count=0;noti_count<20;noti_count++){
         notification.push(data_covidNotification.data.notifications[randomNum[0]]);
@@ -69,28 +69,18 @@ async function getCovidData(){
     notification.forEach(function(item,index,array) {
         console.log(item);
     });
-    
-    // notification = data_covidNotification.data.notifications[randomNum[0]];
-    // notification = data_covidNotification.data.notifications[randomNum[1]];
-    // notification = data_covidNotification.data.notifications[randomNum[2]];
-    // notification = data_covidNotification.data.notifications[randomNum[3]];
-    // console.log(notification)
 
-    // document.getElementById("updation").innerHTML = "updated on:" + lastOriginUpdate + "(GMT+5:30)";
-    // document.getElementById("totalCases").innerHTML = totalCases;
-    // document.getElementById("activeCases").innerHTML = activeCases;
-    // document.getElementById("discharged").innerHTML = discharged;
-    // document.getElementById("deaths").innerHTML = deaths;
+    document.getElementById("updation").innerHTML = "Last update:" + lastOriginUpdate + "(GMT+5:30)";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    document.getElementById("totalCases").innerHTML = totalCases;
+    document.getElementById("activeCases").innerHTML = activeCases;
+    document.getElementById("discharged").innerHTML = discharged;
+    document.getElementById("deaths").innerHTML = deaths;
 
     state_name_totalCases.forEach(function(item,index,array) {
         document.getElementById("state_name_totalCases").innerHTML += item.state_name+":"+item.state_cases+"\t|\t"; 
     });
 
     document.getElementById("notificationNum").innerHTML = notification.length;
-    // document.getElementById("notification1").innerHTML += notification[0].title+"\n"+notification[0].link;
-    // document.getElementById("notification2").innerHTML += notification[1].title+"\n"+notification[1].link;
-    // document.getElementById("notification3").innerHTML += notification[2].title+"\n"+notification[2].link;
-    // document.getElementById("notification4").innerHTML += notification[3].title+"\n"+notification[3].link;
     notification.forEach(function(item,index,array) {
         document.getElementById("notifications").innerHTML += item.title+"\n"+item.link; 
     });
