@@ -68,12 +68,9 @@
                 <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    State Wise Report
                 </button>
-                <div class="dropdown-menu dropdown-black .scrollable-menu">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Separated link</a>
+                <div class="dropdown-menu dropdown-black scrollable-menu" id="stateWise">
+                    <option class="dropdown-item">All India</option>
+                    <div class="dropdown-divider"></div>
                 </div>
               </div>
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myChart">
@@ -142,12 +139,12 @@
         </div>
 
       </div>
-      <div class="col-md-10 col-12 " id="scroll&dashboard">
-        <div class="scrolling-bar alert alert-primary bg-color mr-3"role="alert">
+      <div class="col-md-10 col-12 " >
+        <div class="scrolling-bar alert alert-primary bg-color m-3"role="alert">
           <marquee class="state_name_totalCases" behavior="scroll" direction="left" bgcolor="#FFD9D8" scrollamound="30" id="state_name_totalCases" ></marquee>
         </div>
-        <div class="row  ">
-          <div class="col-md-3 col-12">
+        <div class="row m-3 ">
+          <div class="col-md-3 col-12 ">
             <div class="card" style="width: 15rem; background-image: linear-gradient(#00ACE1,#00ECCD);">
               <div class="card-body">
                 <h4 class="card-title">Total Cases Reported</h4>
@@ -180,8 +177,8 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 mr-3">
+        <div class="row m-3">
+          <div class="col-md-12">
             <canvas id="myChart" width="400" height="200"></canvas>
           </div>
         </div>

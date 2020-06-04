@@ -54,10 +54,27 @@ async function getCovidData(){
         // console.log(data_covidStatus.data.regional[dist_num].loc+":"+data_covidStatus.data.regional[dist_num].totalConfirmed);
         state_name_totalCases.push({state_name:data_covidStatus.data.regional[dist_num].loc,state_cases:data_covidStatus.data.regional[dist_num].totalConfirmed});
     }
+    
     // state_name_totalCases.forEach(function(item,index,array) {
     //     console.log(item.state_name+":"+item.state_cases);
         
     // });
+    //************************Content added drop-down list*******************//
+    for(var state_name_counter =0;state_name_counter<state_name_totalCases.length;state_name_counter++){
+        let state_name_id = document.getElementById("stateWise");
+        let option = document.createElement("option");
+        option.text = state_name_totalCases[state_name_counter].state_name;
+        option.classList.add("dropdown-item");
+        state_name_id.appendChild(option);
+    }
+    
+    // console.log(state_name_id);
+    
+    
+    
+    
+    // console.log(option);
+    
 
     //********************Random selected 20 Covid Notifications******************//
     // console.log(data_covidNotification.data.notifications[20]);
@@ -65,10 +82,10 @@ async function getCovidData(){
     for(var noti_count=0;noti_count<20;noti_count++){
         notification.push(data_covidNotification.data.notifications[randomNum[0]]);
     }
-    console.log(notification.length);
-    notification.forEach(function(item,index,array) {
-        console.log(item);
-    });
+    // console.log(notification.length);
+    // notification.forEach(function(item,index,array) {
+    //     console.log(item);
+    // });
 
     document.getElementById("updation").innerHTML = "Last update:" + lastOriginUpdate + "(GMT+5:30)";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     document.getElementById("totalCases").innerHTML = totalCases;

@@ -133,10 +133,22 @@ hr{
 }
 .scrollable-menu {
     height: auto;
-    max-height: 50px;
+    max-height: 200px;
     overflow-y: auto;
 }
 }
 
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.dropdown-item{
+    padding-left: 0;
+}
+
+.dropdown-item a:hover{
+   background-size: contain;
+}
 
   
