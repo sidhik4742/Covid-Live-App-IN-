@@ -65,12 +65,13 @@
               </button>
               <!-- Example split danger button -->
               <div class="dropdown pl-0.5">
-                <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn btn-danger btn-lg dropdown-toggle"   id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    State Wise Report
                 </button>
                 <div class="dropdown-menu dropdown-black scrollable-menu" id="stateWise">
-                    <option class="dropdown-item">All India</option>
+                    <option class="dropdown-item" >All India</option>
                     <div class="dropdown-divider"></div>
+                  
                 </div>
               </div>
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myChart">
@@ -186,6 +187,8 @@
     </div>
   </div>
 
+
+
     <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -259,6 +262,10 @@
       function closenav(){
         document.getElementById("sidePanel").style.width = "0";
       }
+      function selectSate(){
+        console.log("entering");
+        console.log(document.getElementById("stateWise").selectedIndex);
+    }
   </script>
 </body>
 </html>
