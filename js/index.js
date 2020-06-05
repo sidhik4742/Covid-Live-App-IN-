@@ -10,6 +10,10 @@ const url_covidNotification = 'https://api.rootnet.in/covid19-in/notifications'
 let notification = [];
 var randomNum = [];
 var sateName =[];
+var stateNameCases = [];
+var rgbaArray =[];
+var chartData_state = [];
+var chartData_india = [];
 // var stateName_number;
 // let state_totalCase;
 for(var counter =1;counter<=20;counter++){
@@ -22,6 +26,85 @@ for(var counter =1;counter<=20;counter++){
 
  getCovidData();
 
+
+    //**********************Genarate random rgba array****************// */
+        
+    for(var rgba_counter =0;rgba_counter<35;rgba_counter++){
+        var o = Math.round, r = Math.random, s = 255;
+        rgbaArray.push( 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')');
+    }
+    /////************************Chart************************///// */
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Total Cases','Active','Discharged','Deaths'],
+            datasets: [{
+                label: 'StateWise Cases',
+                data: [],
+                backgroundColor: rgbaArray,
+                borderColor: [
+                    'rgba(255, 18, 99, 1)'
+                ],
+                borderWidth: 2,
+                order: 2
+               },{
+                label: 'Total Cases',
+                data:[],
+                backgroundColor:[
+                    '255,18,99,1'
+                ],
+                borderColor: [
+                    'rgba(255, 18, 99, 1)'
+                ],
+                type: 'line',
+                order: 1
+               }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio:false,
+            title:{
+                display: true,
+                text: ' Covid-19 INDIA (Total Cases/StateWise Cases) '
+            },
+            legend:{
+                display: true,
+                position: 'top',
+                align: 'end'
+            },
+            scales: {
+                yAxes: [{
+                    stacked:true,
+                    gridLines:{
+                        display: false
+                    },
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+                xAxes:[{
+                    gridLines:{
+                        display:false
+                    }
+                }]
+
+            }
+        }
+    });
+    function addData_stateCases(myChart, chartData_state,) {
+        for(var i=0;i<chartData_state.length;i++){
+            myChart.data.datasets[0].data[i] = chartData_state[i];
+        }    
+        myChart.update();
+    }
+    function addData_totalCases(myChart,chartData_india) {
+        for(var i=0;i<chartData_india.length;i++){
+            myChart.data.datasets[1].data[i] = chartData_india[i];
+        }    
+        myChart.update();
+    }
+ 
 async function getCovidData(){
     const data_covidStatustemp = await fetch(url_covidStatus);
     const data_covidStatus  = await data_covidStatustemp.json();
@@ -49,6 +132,7 @@ async function getCovidData(){
     var activeCases = totalCases-(discharged+deaths+confirmedCasesForeign);
     //  console.log(totalCases+ " "+ discharged+ " "+ deaths);
     // console.log(activeCases);
+    chartData_india.push(totalCases,activeCases,discharged,deaths);// array to contain all india cases(total,active,discharged,deaths)
 
     // **********************Total conformed cases state wide*****************//
     // console.log(data_covidStatus.data.regional.length)
@@ -56,6 +140,8 @@ async function getCovidData(){
     for(var dist_num=0;dist_num<(data_covidStatus.data.regional.length);dist_num++){
         // console.log(data_covidStatus.data.regional[dist_num].loc+":"+data_covidStatus.data.regional[dist_num].totalConfirmed);
         state_name_totalCases.push({state_name:data_covidStatus.data.regional[dist_num].loc,state_cases:data_covidStatus.data.regional[dist_num].totalConfirmed});
+        sateName.push(state_name_totalCases[dist_num].state_name);
+        stateNameCases.push(state_name_totalCases[dist_num].state_cases);
     }
     
     // state_name_totalCases.forEach(function(item,index,array) {
@@ -65,7 +151,6 @@ async function getCovidData(){
     //************************Content added drop-down list*******************//
     
     for(var state_name_counter =0;state_name_counter<data_covidStatus.data.regional.length;state_name_counter++){
-        sateName.push(state_name_totalCases[state_name_counter].state_name);
         let state_name_id = document.getElementById("stateWise");
         let option = document.createElement("option");
         option.text = state_name_totalCases[state_name_counter].state_name;
@@ -73,6 +158,7 @@ async function getCovidData(){
         option.value = state_name_totalCases[state_name_counter].state_name;
         option.addEventListener('click',function(){
             // console.log(option.value);
+            
             let stateName_number = (sateName.indexOf(option.value));
             let state_totalCase = data_covidStatus.data.regional[stateName_number].totalConfirmed;
             let state_discharged = data_covidStatus.data.regional[stateName_number].discharged;
@@ -80,15 +166,21 @@ async function getCovidData(){
             let state_activeCases = (state_totalCase-(state_discharged+state_deaths));
             // console.log(state_activeCases);
             
+            chartData_state.push(state_totalCase,state_activeCases,state_discharged,state_deaths);
+            console.log(chartData_state);
+            
+
             document.getElementById("totalCases").innerHTML = state_totalCase;
             document.getElementById("activeCases").innerHTML = state_activeCases;
             document.getElementById("discharged").innerHTML = state_discharged;
             document.getElementById("deaths").innerHTML = state_deaths;
+
+            addData_stateCases(myChart, chartData_state);
+            chartData_state.length =0;
         });
         state_name_id.appendChild(option);
         // console.log(option);
     }
-    
     //********************Random selected 20 Covid Notifications******************//
     // console.log(data_covidNotification.data.notifications[20]);
 
@@ -112,13 +204,15 @@ async function getCovidData(){
         document.getElementById("state_name_totalCases").innerHTML += item.state_name+":"+item.state_cases+"\t|\t"; 
     });
     
-    document.getElementById("totalCases").innerHTML = totalCases;
-    document.getElementById("activeCases").innerHTML = activeCases;
-    document.getElementById("discharged").innerHTML = discharged;
-    document.getElementById("deaths").innerHTML = deaths;
+        document.getElementById("totalCases").innerHTML = totalCases;
+        document.getElementById("activeCases").innerHTML = activeCases;
+        document.getElementById("discharged").innerHTML = discharged;
+        document.getElementById("deaths").innerHTML = deaths;
 
-    
-    }
+        addData_totalCases(myChart,chartData_india);
+        
+        
+}
     // console.log(sateName);
 });
     
